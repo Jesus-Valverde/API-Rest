@@ -20,10 +20,7 @@
         }
     }
 
-    // Intentar conectar a la base de datos
-    $database = new Database();
-    $db = $database->getConnection();
-    $db->connect();
-    
-
-    ?>
+    // Prueba - Intentar conectar a la base de datos
+    // $database = new Database();
+    // $db = $database->getConnection();
+    // $db->connect();
