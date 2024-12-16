@@ -6,30 +6,30 @@ header("Access-Control-Allow-Methods: POST");
 header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
-include_once "../Configuracion/DataBase.php";
-include_once "../Clases/Productos.php";
+include_once "../Config/DataBase.php";
+include_once "../Classes/Productos.php";
 
 $objBaseDatos = new DataBase();
 $db = $objBaseDatos->getConnection();
 $objProductos = new Productos($db);
-$objProductos->idProducto = isset($_GET['idProductos']) ? $_GET['idProductos'] : die();
+$objProductos->idProducto = isset($_GET['idProducto']) ? $_GET['idProducto'] : die();
+
 $objProductos->getProducto();
 
-if($objProductos->nombre != null){
+if ($objProductos->nombre != null) {
 
     $emp_arr = array(
-        "idProductos"    => $objProductos->idProducto,
-        "nombre"        => $objProductos->nombre,
-        "descripcion"   => $objProductos->descripcion,
-        "precioCompra"  => $objProductos->precioCompra,
-        "precioVenta"   => $objProductos->precioVenta,
-        "existencia"    => $objProductos->existencia
+        "idProductos" => $objProductos->idProducto,
+        "nombre" => $objProductos->nombre,
+        "descripcion" => $objProductos->descripcion,
+        "precioCompra" => $objProductos->precioCompra,
+        "precioVenta" => $objProductos->precioVenta,
+        "existencia" => $objProductos->existencia
     );
 
     http_response_code(200);
     echo json_encode($emp_arr);
-}
-else{
+} else {
     http_response_code(404);
     echo json_encode("Producto no encontrado...");
 }

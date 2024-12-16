@@ -21,7 +21,7 @@ class Productos
         $this->conn = $db;
     }
 
-    // Método GET que devuelve todos los productos.
+    // Metodo GET que devuelve todos los productos.
     public function getProductos()
     {
         $consultaSQL = "SELECT idProducto, nombre, descripcion, precioCompra, precioVenta, existencia FROM " . $this->tabla . "";

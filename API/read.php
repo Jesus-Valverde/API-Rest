@@ -3,8 +3,8 @@
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
 
-include_once '../Configuracion/DataBase.php';
-include_once '../Clases/Productos.php';
+include_once '../Config/DataBase.php';
+include_once '../Classes/Productos.php';
 
 $objBaseDatos = new DataBase();
 $db = $objBaseDatos->getConnection();
